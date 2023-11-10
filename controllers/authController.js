@@ -18,17 +18,20 @@ module.exports = {
                         emailVerified:false,
                         disabled:false
                     })
+
                     const newUser = new User({
                         username : user.username,
                         email: user.email,
                         password: CryptoJS.AES.encrypt(user.password,process.env.SECRET).toString(),
                         uid : UserResponse.uid,
-                        userType :'Client'
+                        userType :user.userType
                     })
+
+                    
                     await newUser.save();
                     res.status(201).json({status:true})
                 } catch (error) {
-                    res.status(500).json({status:false, error :" Error Creating User"})
+                    res.status(500).json({status:false, error :error.message})
                 }
             }
         }
