@@ -9,7 +9,6 @@ const verifyTocken =async(req,res,next)=>{
                return res.status(403).json({status :false,message:"invalid tocken"})
             }
             req.user = user;
-            console.log(user);
             next();
         });
 

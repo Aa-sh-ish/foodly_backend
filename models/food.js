@@ -5,7 +5,11 @@ const FoodSchema = new mongoose.Schema({
         required: true 
     },
     foodTags:{
-        type:String ,
+        type:Array,
+        required:true,
+    },
+    foodType:{
+        type:Array,
         required:true,
     },
     category:{
@@ -51,4 +55,4 @@ const FoodSchema = new mongoose.Schema({
         required:true,
     }
 });
-module.exports = mongoose.model('Cataegory',FoodSchema)
+module.exports = mongoose.model('Foods',FoodSchema)
