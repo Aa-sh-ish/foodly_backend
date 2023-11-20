@@ -10,6 +10,7 @@ const userRouter = require('./routers/user')
 const restaurantRouter = require('./routers/restaurant')
 const categoriesRouter =  require('./routers/categories')
 const foodRouter =  require('./routers/food')
+const cartRouter = require('./routers/cart')
 
 
 
@@ -32,6 +33,7 @@ app.use('/api/users',userRouter);
 app.use('/api/restaurant',restaurantRouter);
 app.use('/api/category',categoriesRouter);
 app.use('/api/foods',foodRouter);
+app.use('/api/cart',cartRouter);
 app.use("/hello", (req, res)=>{
     res.send("Hello")
 });

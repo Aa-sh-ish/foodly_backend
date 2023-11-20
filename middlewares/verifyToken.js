@@ -26,8 +26,6 @@ const verifyAndAuthorization = async(req,res,next)=>{
         req.user.userType==="Vendors"||
         req.user.userType==="Admin"||
         req.user.userType==="Driver"){
-            console.log("here com");
-
             next();
         }else{
             res.status(403).json({status:false,message:"You Are Not Authorized and verifed user"})

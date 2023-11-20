@@ -11,7 +11,6 @@ module.exports={
         }
     },
 
-
     deleteUser: async(req,res)=>{
         const userId = req.user.id;
         try {

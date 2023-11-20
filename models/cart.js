@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 const cartSchema = new mongoose.Schema({
-    UserId: { 
+    userId: { 
         type: mongoose.Schema.ObjectId,ref:"User",
         required: true 
     },
-    ProductId:{
+    productId:{
         type:mongoose.Schema.ObjectId,ref:"Foods",
         required:true
     },
@@ -18,7 +18,7 @@ const cartSchema = new mongoose.Schema({
         type:Number,
         default:1
     },
-    total:{
+    totalPrice:{
         type:Number,
         required:true
     }
