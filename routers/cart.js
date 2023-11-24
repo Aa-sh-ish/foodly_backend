@@ -14,5 +14,4 @@ router.get('/count',verifyAndAuthorization,cartController.getCartCount);
 
 router.delete('/clear',verifyAndAuthorization,cartController.clearUserCart);
 
-
 module.exports = router;

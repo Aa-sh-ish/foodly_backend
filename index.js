@@ -3,7 +3,7 @@ const dotenv = require('dotenv')
  const mongoose =  require('mongoose')
  const bodyParser = require('body-parser')
 const app = express()
-const port = 6002
+const port = 6000
 
 const authRouter = require('./routers/auth')
 const userRouter = require('./routers/user')
@@ -11,6 +11,11 @@ const restaurantRouter = require('./routers/restaurant')
 const categoriesRouter =  require('./routers/categories')
 const foodRouter =  require('./routers/food')
 const cartRouter = require('./routers/cart')
+const addressRouter = require('./routers/address')
+const orderRouter = require('./routers/order')
+const driverRouter = require('./routers/driver')
+
+
 
 
 
@@ -34,6 +39,10 @@ app.use('/api/restaurant',restaurantRouter);
 app.use('/api/category',categoriesRouter);
 app.use('/api/foods',foodRouter);
 app.use('/api/cart',cartRouter);
+app.use('/api/address',addressRouter);
+app.use('/api/order',orderRouter);
+app.use('/api/driver',driverRouter);
+                                                                                                                                                                                                                                                                                                                                                                                                                               
 app.use("/hello", (req, res)=>{
     res.send("Hello")
 });
