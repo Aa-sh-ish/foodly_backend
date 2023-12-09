@@ -9,10 +9,6 @@ const UserSchema = new mongoose.Schema({
         required:true,
         unique:true
     },
-    uid:{type:String ,
-        required:true,
-        unique:true
-    },
     password: {
         type: String,
         required: true,
@@ -31,14 +27,6 @@ const UserSchema = new mongoose.Schema({
         default:"Client",
         enum:['Admin','Driver','Client','Vendors']
     },
-    Profile: { 
-        type: String, 
-        required: true,
-        default:"https://i.pinimg.com/736x/b2/54/ea/b254ea1ec256b93c61aecb2aca62e277.jpg"
-    }
-
-
-
 },
 {timestamps:true});
 module.exports = mongoose.model('User',UserSchema)
