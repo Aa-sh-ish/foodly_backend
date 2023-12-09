@@ -1,4 +1,5 @@
 const User = require("../models/user")
+const admin = require('firebase-admin')
 
 module.exports={
     getUser: async(req,res)=>{

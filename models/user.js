@@ -13,9 +13,10 @@ const UserSchema = new mongoose.Schema({
         required:true,
         unique:true
     },
-    password: { 
-        type: String, 
-        required: true},
+    password: {
+        type: String,
+        required: true,
+    },
     address: { 
         type: Array, 
         required: false
@@ -24,7 +25,7 @@ const UserSchema = new mongoose.Schema({
         type: String, 
         required: false
     },
-    userType: { 
+    userType: {
         type: String, 
         required: true,
         default:"Client",

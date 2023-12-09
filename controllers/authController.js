@@ -40,11 +40,15 @@ module.exports = {
     LoginUser : async(req,res)=>{
         try {
             const user = await User.findOne({email : req.body.email},{_v:0, updatedAt:0,createdAt:0})
-            !user && res.status(401).json("Wrong Credentials")
+            if (!user ) {
+                res.status(401).json("Wrong Credentials")
+            } 
 
             const decryptedPassword = CryptoJS.AES.decrypt(user.password,process.env.SECRET)
             const decrypted = decryptedPassword.toString(CryptoJS.enc.Utf8);
-            decrypted!=req.body.password&&res.status(401).json("Wrong Password")
+            if (decrypted!=req.body.password) {
+                res.status(401).json("Wrong Password")
+            }
             const userToken = jwt.sign({
                 id:user.id,
                 email:user.email,
