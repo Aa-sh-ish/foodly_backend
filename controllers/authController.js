@@ -28,7 +28,7 @@ module.exports = {
             const user = await User.findOne({email : req.body.email},{_v:0, updatedAt:0,createdAt:0})
             if (!user ) {
                return res.status(401).json({message:"Wrong Credentials"})
-            } 
+            }
 
             const decryptedPassword = CryptoJS.AES.decrypt(user.password,process.env.SECRET)
             const decrypted = decryptedPassword.toString(CryptoJS.enc.Utf8);
@@ -41,7 +41,7 @@ module.exports = {
                 userType:user.userType
             },process.env.JWT_SEC,{expiresIn:'21d'});
 
-            const {password, email,...others} = user._doc;
+            const {password,...others} = user._doc;
             res.status(200).json({...others,userToken})
         } catch (error) {
             res.status(500).json({status:false, error :error.message});
