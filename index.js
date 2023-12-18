@@ -14,10 +14,7 @@ const cartRouter = require('./routers/cart')
 const addressRouter = require('./routers/address')
 const orderRouter = require('./routers/order')
 const driverRouter = require('./routers/driver')
-
-
-
-
+const qaRouter  = require('./routers/qaRouter')
 
 dotenv.config()
 
@@ -41,8 +38,8 @@ app.use('/api/foods',foodRouter);
 app.use('/api/cart',cartRouter);
 app.use('/api/address',addressRouter);
 app.use('/api/order',orderRouter);
-app.use('/api/driver',driverRouter);
-                                                                                                                                                                                                                                                                                                                                                                                                                               
+app.use('/api/driver',driverRouter);     
+app.use('/mcq',qaRouter);
 app.use("/hello", (req, res)=>{
     res.send("Hello")
 });
